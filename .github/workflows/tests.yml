@@ -4,12 +4,11 @@ jobs:
   Compilation:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout
+        uses: actions/checkout@v4
       - name: Compilation
         run: |
-          last_directory=$(basename ${{ runner.workspace }})
-          git clone https://github.com/${{ github.repository }}.git
-          cd ./$last_directory
-          mkdir build
+          mkdir -p build
           cd build
           cmake ..
           make
@@ -19,12 +18,11 @@ jobs:
     runs-on: ubuntu-latest
     needs: Compilation
     steps:
+      - name: Checkout
+        uses: actions/checkout@v4
       - name: Test fonction add
         run: |
-          last_directory=$(basename ${{ runner.workspace }})
-          git clone https://github.com/${{ github.repository }}.git
-          cd ./$last_directory
-          mkdir build
+          mkdir -p build
           cd build
           cmake ..
           make
@@ -34,12 +32,11 @@ jobs:
     runs-on: ubuntu-latest
     needs: Compilation
     steps:
+      - name: Checkout
+        uses: actions/checkout@v4
       - name: Test fonction sub
         run: |
-          last_directory=$(basename ${{ runner.workspace }})
-          git clone https://github.com/${{ github.repository }}.git
-          cd ./$last_directory
-          mkdir build
+          mkdir -p build
           cd build
           cmake ..
           make
@@ -49,12 +46,11 @@ jobs:
     runs-on: ubuntu-latest
     needs: Compilation
     steps:
+      - name: Checkout
+        uses: actions/checkout@v4
       - name: Test fonction mul
         run: |
-          last_directory=$(basename ${{ runner.workspace }})
-          git clone https://github.com/${{ github.repository }}.git
-          cd ./$last_directory
-          mkdir build
+          mkdir -p build
           cd build
           cmake ..
           make
@@ -64,12 +60,11 @@ jobs:
     runs-on: ubuntu-latest
     needs: Compilation
     steps:
+      - name: Checkout
+        uses: actions/checkout@v4
       - name: Test fonction div
         run: |
-          last_directory=$(basename ${{ runner.workspace }})
-          git clone https://github.com/${{ github.repository }}.git
-          cd ./$last_directory
-          mkdir build
+          mkdir -p build
           cd build
           cmake ..
           make
@@ -79,12 +74,11 @@ jobs:
     runs-on: ubuntu-latest
     needs: Compilation
     steps:
+      - name: Checkout
+        uses: actions/checkout@v4
       - name: Test fonction car
         run: |
-          last_directory=$(basename ${{ runner.workspace }})
-          git clone https://github.com/${{ github.repository }}.git
-          cd ./$last_directory
-          mkdir build
+          mkdir -p build
           cd build
           cmake ..
           make
